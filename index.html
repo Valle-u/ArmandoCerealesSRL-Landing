@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título y Descripción para SEO y buscadores -->
+    <title>Armando Cereales</title>
+    <link rel="icon" type="image/png" href="img/logo_nav_64.png">
+    <link rel="stylesheet" href="styles2.css">
+    <meta name="description" content="Somos una empresa especializada en el comercio, acopio y distribución de cereales y productos agroindustriales, comprometida con brindar abastecimiento confiable">
+
+    <!-- Metaetiquetas del Protocolo Open Graph para Facebook y otras redes sociales -->
+    <meta property="og:title" content="Los Armando Cereales S.R.L - Los mejores cereales" />
+    <meta property="og:description" content="Combinamos experiencia, formalidad y una estructura ágil que permite responder rápido a las necesidades del mercado, generando relaciones comerciales transparentes y de largo plazo." />
+    <meta property="og:url" content="https://www.armandocereales.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LOS ARMANDO CEREALES S.R.L." />
+
+    <!-- Datos Estructurados JSON-LD para describir la empresa -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "LOS ARMANDO CEREALES S.R.L.",
+        "url": "https://www.armandocereales.com",
+        "logo": "https://www.armandocereales.com/img/logo_nav_64.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+54-11-XXXX-XXXX",
+            "contactType": "customer service",
+            "email": "contacto@armandocereales.com"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Corrientes 1234",
+            "addressLocality": "Buenos Aires",
+            "postalCode": "C1043AAS",
+            "addressCountry": "AR"
+        }
+    }
+    </script>
+</head>
+<body>
+    
+    <header class="header-landing">
+        <!-- Envolver el logo en un enlace a la página principal es una buena práctica -->
+        <nav class="main-nav" id="main-nav">
+            <a href="index.html" class="wrap-logo">
+                <img src="img/logo_nav_64.png" alt="LOS ARMANDO CEREALES S.R.L. Logo" class="logo-header">
+            </a>
+
+            <ul class="nav__ul"> 
+                <li class="nav__item"><a href="#contact-form" class="nav__link">Contacto</a></li>
+                <li class="nav__item"><a href="#product-display-section" class="nav__link">Catalogo</a></li>
+                <li class="nav__item"><a href="#" class="nav__link" id="terms-btn">Terminos y condiciones</a></li>
+                <li class="nav__item"><a href="#" class="nav__link" id="privacy-btn">Politica de privacidad</a></li>
+                <li class="nav__item">
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode"></button>
+                </li>
+            </ul>
+
+            <a href="#" class="nav__link link--login" id="login-btn">Log In</a>
+        </nav>
+
+        <button class="hamburger-menu" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="hamburger-menu__bar"></span>
+            <span class="hamburger-menu__bar"></span>
+            <span class="hamburger-menu__bar"></span>
+        </button>
+    </header>
+    
+    <!-- 1º Section -->
+
+    <section class="hero-section">
+        <div class="wrap-hero-section">
+            <h1>LOS ARMANDO CEREALES S.R.L</h1>
+            <p>Somos una empresa especializada en el comercio, acopio y distribución de cereales y productos agroindustriales, comprometida con brindar abastecimiento confiable, operaciones eficientes y soluciones a medida para productores y empresas del sector. Combinamos experiencia, formalidad y una estructura ágil que permite responder rápido a las necesidades del mercado, generando relaciones comerciales transparentes y de largo plazo.</p>
+            <p class="hero-subtitle">Más de 5.000 clientes satisfechos</p>
+            <div class="hero-rating">
+                <span>⭐⭐⭐⭐⭐</span>
+                <span class="hero-rating-text">Valoración 5/5"</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Productos en Pantalla -->
+    <section id="product-display-section" class="product-display-section">
+        <div class="wrap-title-section">
+            <h2>Nuestros Productos</h2>
+        </div>
+        <div class="product-catalog-grid">
+            <!-- Producto 1 -->
+            <div class="product-card" itemscope itemtype="http://schema.org/Product">
+                <img src="img/producto1.png" alt="Plato de cereales" class="product-image" itemprop="image">
+                <h4 class="product-name" itemprop="name">VENTA MINORISTA</h4>
+                <!-- Contenedor para la oferta del producto -->
+                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="ARS" />
+                    <link itemprop="availability" href="http://schema.org/InStock" />
+                </div>
+                <a href="#" class="product-buy-btn" itemprop="url">Comprar</a>
+                <!-- Propiedades adicionales recomendadas (ocultas para el usuario) -->
+                <div itemprop="description" style="display:none;">Venta minorista de nuestros productos hecha para que todos puedan acceder</div>
+                <div itemprop="brand" itemscope itemtype="http://schema.org/Brand" style="display:none;">
+                    <meta itemprop="name" content="Los Armando Cereales S.R.L" />
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="product-card" itemscope itemtype="http://schema.org/Product">
+                <img src="img/producto2.png" alt="[Nombre del Producto 2]" class="product-image" itemprop="image">
+                <h4 class="product-name" itemprop="name">COMBO EMPRENDEDOR</h4>
+                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="ARS" />
+                    <link itemprop="availability" href="http://schema.org/InStock" />
+                </div>
+                <a href="#" class="product-buy-btn" itemprop="url">Comprar</a>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card" itemscope itemtype="http://schema.org/Product">
+                <img src="img/producto3.webp" alt="Saco de cereales" class="product-image" itemprop="image">
+                <h4 class="product-name" itemprop="name">VENTA MAYORISTA</h4>
+                <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="ARS" />
+                    <link itemprop="availability" href="http://schema.org/InStock" />
+                </div>
+                <a href="#" class="product-buy-btn" itemprop="url">Comprar</a>
+            </div>
+            <!-- Puedes añadir más productos aquí -->
+        </div>
+    </section>
+
+    <!-- 3º Section -->
+
+    <section id="contact-form" class="section two-column-section form">
+
+            <div class="form-container">
+                <div class="form-content">
+                    <h3>Formulario de Contacto</h3>
+
+                    <form action="procesar_formulario.php" method="post" class="form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" name="apellido" id="apellido" placeholder="Escribe tu apellido" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico:</label>
+                            <input type="email" name="email" id="email" placeholder="ejemplo@correo.com" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Número de teléfono:</label>
+                            <input type="tel" name="telefono" id="telefono" placeholder="Tu número de teléfono" required="">
+                        </div>
+                        <button type="submit" class="cta-a">Enviar</button>
+                    </form>
+                </div>
+            </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-column animate-on-scroll">
+                <a href="index.html">
+                    <img src="img/logo_nav_64.png" alt="LOS ARMANDO CEREALES S.R.L. Logo" class="logo-footer">
+                </a>
+                <p>Comercialización, acopio y distribución de cereales y productos agroindustriales.</p>
+            </div>
+            <div class="footer-column animate-on-scroll">
+                <h4>LOS ARMANDO CEREALES</h4>
+                <ul>
+                    <li><a href="#contact-form">Contacto</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-creds">
+            <p>© 2025 LOS ARMANDO CEREALES S.R.L.. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="form-content">
+                <h3>Inicia sesión</h3>
+
+                <form action="procesar_formulario.php" method="post" class="form">
+                    <div class="form-group">
+                        <label for="modal-email-login">Correo electrónico:</label>
+                        <input type="email" name="email" id="modal-email-login" placeholder="ejemplo@correo.com" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-password-login">Contraseña:</label>
+                        <input type="password" name="password" id="modal-password-login" placeholder="Tu contraseña" required="">
+                    </div>
+                    <button type="submit" class="cta-a">Iniciar sesión</button>
+					<div class="form-group">
+						<p>¿No tienes una cuenta? <a href="#" id="register-link">Regístrate</a></p>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal de Registro -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="form-content">
+                <h3>Crea tu cuenta</h3>
+
+                <form action="procesar_formulario.php" method="post" class="form">
+                    <div class="form-group">
+                        <label for="modal-nombre">Nombre:</label>
+                        <input type="text" name="nombre" id="modal-nombre" placeholder="Escribe tu nombre" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-apellido">Apellido:</label>
+                        <input type="text" name="apellido" id="modal-apellido" placeholder="Escribe tu apellido" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email">Correo electrónico:</label>
+                        <input type="email" name="email" id="modal-email" placeholder="ejemplo@correo.com" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-telefono">Número de teléfono:</label>
+                        <input type="tel" name="telefono" id="modal-telefono" placeholder="Tu número de teléfono" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-password">Contraseña:</label>
+                        <input type="password" name="password" id="modal-password" placeholder="Crea una contraseña" required="">
+                    </div>
+                    <button type="submit" class="cta-a">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Catálogo -->
+    <div id="catalog-modal" class="modal">
+        <div class="modal-content modal-lg">
+            <span class="close-button">&times;</span>
+            <div class="form-content">
+                <h3>Nuestro Catálogo</h3>
+                <div class="product-catalog-grid">
+                    <!-- Producto 1 -->
+                    <div class="product-card">
+                        <img src="img/insertarIMG.png" alt="[Nombre del Producto 1]" class="product-image">
+                        <h4 class="product-name">[Nombre del Producto 1]</h4>
+                        <p class="product-price">[Precio]</p>
+                        <a href="#" class="product-buy-btn">[Texto Botón Compra]</a>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="product-card">
+                        <img src="img/insertarIMG.png" alt="[Nombre del Producto 2]" class="product-image">
+                        <h4 class="product-name">[Nombre del Producto 2]</h4>
+                        <p class="product-price">[Precio]</p>
+                        <a href="#" class="product-buy-btn">[Texto Botón Compra]</a>
+                    </div>
+
+                    </div>
+                    <!-- Puedes añadir más productos aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Términos y Condiciones -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="form-content text-content">
+                <h3>Términos y Condiciones de Uso</h3>
+                <p>Última actualización: 10 / 11 / 2025</p>
+                
+                <p>Bienvenido/a a LOS ARMANDO CEREALES S.R.L.. Al acceder y utilizar nuestro sitio web https://www.armandocereales.com, usted acepta los presentes Términos y Condiciones. Le recomendamos leerlos cuidadosamente antes de realizar una compra o utilizar nuestros servicios.</p>
+                
+                <h4>1. Objeto</h4>
+                <p>LOS ARMANDO CEREALES S.R.L. es una plataforma dedicada a la comercialización, acopio, compra, venta y distribución de cereales, granos y productos agroindustriales.. Estos términos rigen el uso del sitio y la relación entre la empresa y sus usuarios.</p>
+                
+                <h4>2. Uso del Sitio</h4>
+                <p>El usuario se compromete a utilizar el sitio de manera responsable, de acuerdo con la ley y las buenas costumbres. Queda prohibido cualquier uso con fines ilícitos, fraudulentos o que pueda dañar la imagen de LOS ARMANDO CEREALES S.R.L. o los derechos de terceros.</p>
+                
+                <h4>3. Productos</h4>
+                <p>Todos los productos y servicios se describen con el mayor detalle posible. Las imágenes son ilustrativas y pueden presentar variaciones menores respecto al producto final.</p>
+                <p>La disponibilidad de los productos está sujeta a stock. En caso de que un artículo se agote tras una compra, se notificará al cliente para ofrecer una alternativa o el reembolso correspondiente.</p>
+                
+                <h4>4. Precios y Pagos</h4>
+                <p>Todos los precios están expresados en Pesos Argentinos (ARS) e incluyen los impuestos aplicables, salvo que se indique lo contrario.</p>
+                <p>Los métodos de pago aceptados son: Transferencias bancarias, acreditación por CBU/Alias, pagos mediante cuentas corporativas y otros medios acordados previamente con el cliente..</p>
+                <p>Nos reservamos el derecho de modificar los precios sin previo aviso, pero se respetará el valor vigente al momento de confirmar la compra.</p>
+                
+                <h4>5. Envíos y Entregas</h4>
+                <p>Realizamos envíos a Operaciones y entregas dentro del territorio de la República Argentina, con foco en zonas agrícolas y corredores logísticos habilitados.. Los costos y plazos de entrega varían según la ubicación y serán informados durante el proceso de compra.</p>
+                <p>Una vez despachado el pedido, la responsabilidad por demoras o daños durante el transporte recae en la empresa de logística contratada.</p>
+                
+                <h4>6. Política de Cambios y Devoluciones</h4>
+                <p>Se aceptan cambios o devoluciones dentro de un plazo de 15 días desde la recepción del producto, siempre que este se encuentre en su estado original y sin uso. (solo aplica si la empresa lo necesita para productos derivados; usualmente en cereales no se manejan devoluciones, pero te lo dejo por si forma parte de un texto estándar).</p>
+                <p>Para gestionar un cambio o devolución, el cliente deberá contactarse a contacto@armandocereales.com.</p>
+                
+                <h4>7. Privacidad y Datos Personales</h4>
+                <p>El tratamiento de los datos personales se rige por nuestra Política de Privacidad, la cual forma parte integral de estos términos y cumple con la Ley N° 25.326 de Protección de Datos Personales.</p>
+                
+                <h4>8. Propiedad Intelectual</h4>
+                <p>Todo el contenido del sitio, incluyendo textos, imágenes, logotipos y diseños, es propiedad de LOS ARMANDO CEREALES S.R.L. y está protegido por las leyes de propiedad intelectual. Queda prohibida su reproducción total o parcial sin autorización expresa.</p>
+                
+                <h4>9. Modificaciones de los Términos</h4>
+                <p>LOS ARMANDO CEREALES S.R.L. se reserva el derecho de modificar estos Términos y Condiciones en cualquier momento. Las actualizaciones se publicarán en esta sección y entrarán en vigencia de forma inmediata.</p>
+                
+                <h4>10. Contacto</h4>
+                <p>Para cualquier consulta relacionada con estos términos, puede contactarnos a través de:</p>
+                <ul>
+                    <li>Correo: contacto@armandocereales.com</li>
+                    <li>Teléfono: +54-11-XXXX-XXXX</li>
+                    <li>Dirección: Av. Corrientes 1234, Buenos Aires</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Política de Privacidad -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="form-content text-content">
+                <h3>Política de Privacidad</h3>
+                <p>Última actualización: 10 / 11 / 2025</p>
+
+                <p>La presente Política de Privacidad describe cómo se recopila, utiliza, almacena y protege la información personal de los usuarios que interactúan con este sitio web (en adelante, “el Sitio”). Al navegar o utilizar los servicios disponibles, el usuario acepta las prácticas detalladas a continuación.</p>
+
+                <h4>1. Responsable del Tratamiento de Datos</h4>
+                <p>El tratamiento de los datos personales será realizado por LOS ARMANDO CEREALES S.R.L., identificado con CUIT 30-71766316-7, con domicilio en Av. Corrientes 1234, Buenos Aires, y correo de contacto: contacto@armandocereales.com. También se podrá contactar al responsable mediante el teléfono +54-11-XXXX-XXXX.</p>
+
+                <h4>2. Datos Personales que se Recopilan</h4>
+                <p>El Sitio puede recopilar las siguientes categorías de datos personales:</p>
+                <ul>
+                    <li>Datos proporcionados directamente por el usuario: nombre, correo electrónico, número de teléfono, dirección y cualquier información ingresada en formularios del Sitio.</li>
+                    <li>Datos de navegación: dirección IP, tipo de dispositivo, identificadores de cookies, páginas visitadas, tiempo de permanencia y otros datos analíticos.</li>
+                    <li>Datos obtenidos a través de plataformas publicitarias externas (incluyendo Facebook Business Manager): información necesaria para la correcta medición de conversiones, análisis de rendimiento de campañas y segmentación publicitaria.</li>
+                </ul>
+
+                <h4>3. Finalidades del Tratamiento de Datos</h4>
+                <p>Los datos personales podrán ser utilizados con las siguientes finalidades:</p>
+                <ul>
+                    <li>Proveer los servicios ofrecidos en el Sitio.</li>
+                    <li>Procesar consultas, solicitudes, registros o formularios enviados por el usuario.</li>
+                    <li>Implementar estrategias de marketing, remarketing y publicidad digital.</li>
+                    <li>Medir y analizar el rendimiento de campañas publicitarias.</li>
+                    <li>Optimizar la experiencia del usuario en el Sitio.</li>
+                    <li>Cumplir con obligaciones legales.</li>
+                </ul>
+
+                <h4>4. Uso de Cookies y Tecnologías Similares</h4>
+                <p>El Sitio utiliza cookies y tecnologías similares para:</p>
+                <ul>
+                    <li>Recordar preferencias del usuario.</li>
+                    <li>Analizar patrones de comportamiento.</li>
+                    <li>Mostrar anuncios personalizados en plataformas externas, incluidas herramientas de Meta (Facebook e Instagram).</li>
+                </ul>
+                <p>El usuario puede configurar su navegador para rechazar cookies, aunque esto puede afectar algunas funcionalidades del Sitio.</p>
+
+                <h4>5. Compartición de Datos</h4>
+                <p>Los datos personales podrán ser compartidos únicamente en los siguientes casos:</p>
+                <ul>
+                    <li>Con proveedores de servicios vinculados al funcionamiento del Sitio (por ejemplo, hosting, analíticas, email marketing).</li>
+                    <li>Con plataformas publicitarias como Meta, para el uso de herramientas de medición y remarketing.</li>
+                    <li>Cuando exista un requerimiento legal, administrativo o judicial.</li>
+                </ul>
+                <p>En ningún caso se venderán, alquilarán o cederán los datos personales a terceros con fines comerciales ajenos a lo establecido en esta política.</p>
+
+                <h4>6. Conservación de los Datos</h4>
+                <p>Los datos serán almacenados por el tiempo necesario para cumplir con los fines para los cuales fueron recopilados, o según lo exijan las normativas aplicables.</p>
+
+                <h4>7. Derechos del Usuario</h4>
+                <p>El usuario podrá ejercer en cualquier momento los siguientes derechos:</p>
+                <ul>
+                    <li>Acceso a sus datos personales.</li>
+                    <li>Rectificación de datos incorrectos o incompletos.</li>
+                    <li>Solicitud de eliminación de datos cuando sea legalmente posible.</li>
+                    <li>Oposición al tratamiento de datos con fines de marketing.</li>
+                    <li>Solicitud de limitación del tratamiento.</li>
+                </ul>
+                <p>Para ejercer estos derechos, deberá enviar un correo a contacto@armandocereales.com indicando su nombre completo y el pedido correspondiente.</p>
+
+                <h4>Procedimiento para la Eliminación de Datos Personales</h4>
+                <p>En LOS ARMANDO CEREALES S.R.L. respetamos su privacidad y cumplimos con la Ley 25.326 de Protección de Datos Personales. Si desea que eliminemos sus datos personales, puede solicitarlo en cualquier momento.</p>
+                <p><strong>¿Qué datos podemos eliminar?</strong></p>
+                <ul>
+                    <li>Número de teléfono vinculado a nuestros canales de comunicación.</li>
+                    <li>Nombre y correo electrónico enviados a través de formularios.</li>
+                    <li>Historial de consultas o conversaciones (si corresponde).</li>
+                </ul>
+                <p><strong>¿Cómo solicitar la eliminación de sus datos?</strong></p>
+                <p>Envíe un correo electrónico a <strong>contacto@armandocereales.com</strong> con el asunto: "Solicitud de eliminación de datos personales". En el cuerpo del mensaje, incluya:</p>
+                <ul>
+                    <li>Su nombre completo.</li>
+                    <li>Número de teléfono o correo electrónico asociado a los datos.</li>
+                    <li>Una breve descripción de los datos que desea que eliminemos.</li>
+                </ul>
+                <p>Una vez recibida la solicitud, confirmaremos su recepción dentro de los próximos 5 días hábiles y procederemos a eliminar sus datos en un plazo no mayor a 15 días hábiles, conforme a la normativa vigente.</p>
+                <p><strong>Importante:</strong> No se requiere justificar la solicitud. La eliminación es gratuita y voluntaria. No almacenamos ni compartimos sus datos con terceros para fines no autorizados.</p>
+
+                <h4>8. Seguridad de la Información</h4>
+                <p>Se adoptan medidas técnicas y organizativas diseñadas para proteger los datos personales frente a pérdida, acceso no autorizado, divulgación o manipulación.</p>
+                <p>No obstante, ningún sistema es completamente infalible. El usuario reconoce que existen riesgos inherentes al uso de plataformas digitales.</p>
+
+                <h4>9. Enlaces a Sitios de Terceros</h4>
+                <p>El Sitio puede contener enlaces a páginas externas cuya gestión es independiente. Esta Política de Privacidad no cubre el tratamiento de datos realizado por dichos sitios.</p>
+
+                <h4>10. Publicidad y Medición con Facebook (Meta)</h4>
+                <p>El Sitio puede utilizar herramientas de Meta, como el píxel de Facebook y las conversiones personalizadas, con fines de análisis y remarketing.</p>
+                <p>Meta puede usar ciertos datos para mejorar la personalización de anuncios, siempre bajo sus propias políticas de privacidad. El usuario puede consultar más información en las plataformas correspondientes.</p>
+
+                <h4>11. Modificaciones a esta Política de Privacidad</h4>
+                <p>El responsable podrá actualizar esta Política en cualquier momento. Cuando esto ocurra, se publicará la nueva versión en este mismo apartado con su fecha de actualización.</p>
+                <p>Se recomienda revisar periódicamente esta sección para conocer posibles cambios.</p>
+
+                <h4>12. Contacto</h4>
+                <p>Para consultas relacionadas con esta Política de Privacidad, los usuarios pueden escribir a:</p>
+                <ul>
+                    <li>Correo: contacto@armandocereales.com</li>
+                    <li>Teléfono: +54-11-XXXX-XXXX</li>
+                    <li>Dirección: Av. Corrientes 1234, Buenos Aires</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Ayuda con Video -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="video-container">
+                <video id="help-video" controls width="100%">
+                    <source src="videos/como-comprar.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+
+    <!-- Datos Estructurados JSON-LD para la Empresa y Productos -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Corporation",
+    "name": "LOS ARMANDO CEREALES S.R.L.",
+    "url": "https://www.armandocereales.com",
+    "logo": "https://www.armandocereales.com/img/logo_nav_64.png",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+54-11-XXXX-XXXX",
+        "contactType": "customer service",
+        "email": "contacto@armandocereales.com"
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Corrientes 1234",
+        "addressLocality": "Buenos Aires",
+        "postalCode": "C1043AAS",
+        "addressCountry": "AR"
+    },
+    "sameAs": [
+        "https://www.facebook.com/armandocereales",
+        "https://www.instagram.com/armandocereales",
+        "https://twitter.com/armandocereales"
+    ]
+    }
+    </script>
+
+</body>
+</html>

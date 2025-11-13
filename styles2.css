@@ -1,0 +1,965 @@
+/** -------------------------------ESTILOS GENERALES-------------------------------------- **/
+
+*, *::before, *::after {
+margin: 0; 
+padding: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  --bg-color: #f4f4f9;
+  --text-color: #333;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: #fff;
+  --form-bg: #f8f9fa;
+  --form-input-bg: #fff;
+  --form-input-border: #ced4da;
+  --footer-bg: #343a40;
+  --footer-text: #f8f9fa;
+  --modal-bg: #f8f9fa;
+  --h2-color: #c0bebe;
+  --link-color: #333;
+  --link-hover-bg: #e9ecef;
+  --link-hover-color: #4a90e2;
+
+  font-size: 15px; /* Base para unidades REM. 1rem = 15px. Reduce el tamaño general. */
+  scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en anclas */
+}
+
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --header-bg: rgba(20, 20, 20, 0.9);
+  --card-bg: #2c2c2c;
+  --form-bg: #2c2c2c;
+  --form-input-bg: #333;
+  --form-input-border: #555;
+  --footer-bg: #1a1a1a;
+  --footer-text: #e0e0e0;
+  --modal-bg: #2c2c2c;
+  --h2-color: #888;
+  --link-color: #e0e0e0;
+  --link-hover-bg: #333;
+  --link-hover-color: #5ca9ff;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  justify-content: center;
+}
+
+p{
+padding: 0;
+font-size: 1.1rem;
+}
+
+a{
+text-decoration: none;
+}
+
+ul, li{
+list-style: none;
+}
+
+.wrap-cta{
+padding: 1.5rem 0;
+}
+
+h1{
+font-size: 2.8rem;
+
+}
+
+h2{
+font-size: 2.5rem;
+color: var(--h2-color);
+}
+h3{
+font-size: 2.2rem;
+}
+
+/** -------------------------------HEADER-------------------------------------- **/
+
+.header-landing {
+display: flex;
+align-items: center;
+justify-content: space-between;
+align-items: center;
+padding: 0.5rem 2rem; /* Aumentar el padding vertical si es necesario al envolver */
+min-height: 4rem; /* Cambiado de height a min-height para permitir que crezca */
+box-shadow: 0 2px 8px 0 #0002;
+position: sticky; /* Fija el header al hacer scroll */
+top: 0;
+background: var(--header-bg); /* Fondo blanco con transparencia */
+backdrop-filter: blur(5px); /* Efecto de desenfoque en el fondo */
+z-index: 100; /* Asegura que esté por encima de otros elementos */
+border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Borde sutil para definir el header */
+flex-grow:unset;
+flex-direction: row;
+flex-wrap: wrap;
+min-height: 0.6rem; 
+}
+
+
+.logo-header {
+max-width: 5rem;      /* Más chico */
+width: 100%;
+height: auto;
+transition: 
+transform 0.3s,
+box-shadow 0.3s,
+filter 0.3s;
+box-shadow: 0 2px 8px 0 #0006; /* Sombra gris suave */
+filter: none;                  /* Sin brillo */
+border-radius: 1rem;
+background: var(--card-bg); /* Color específico, podría ser una variable si se reutiliza */
+padding: 0.3rem 0.7rem;        /* Más chico */
+box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+display: inline-block; /* Asegura que el logo sea un bloque */
+align-self: start;
+}
+
+.logo-header:hover {
+transform: scale(1.08) rotate(-3deg);
+box-shadow: 0 4px 16px 0 #0008; /* Sombra gris más notoria al pasar el mouse */
+filter: none;
+background: var(--bg-color);
+}
+
+.main-nav {
+  width: 80%;
+  display: flex;
+  justify-content: space-between; /* Coloca espacio entre los elementos */
+  flex-grow: 1; /* Permite que el nav ocupe el espacio disponible */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.nav__ul  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Permite que los elementos bajen a la siguiente línea */
+  gap: 1rem; /* Espacio entre elementos del menú */
+  margin: 0;
+}
+
+.nav__item {
+  list-style: none;
+  border-radius: 2rem; /* Coincide con el radio del link para un look cohesivo */
+  display: flex; /* Para alinear el interruptor correctamente */
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  /* Hacemos que el contenedor del item reaccione al hover */
+}
+
+/* Aplicamos el efecto hover a todos los items EXCEPTO al que contiene el botón de login */
+.nav__item:not(:has(.link--login)):hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav__link {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  color: var(--link-color);
+  position: relative; /* Necesario para el pseudo-elemento de la animación */
+  font-weight: 500;
+  border-radius: 2rem;
+  transition: all 0.25s ease-in-out;
+  font-size: 1rem;
+  text-decoration: none;
+  overflow: hidden; /* Asegura que la animación no se salga del borde redondeado */
+}
+
+/* Animación de subrayado para los links */
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4a90e2;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.nav__link:hover {
+  background-color: var(--link-hover-bg);
+  color: var(--link-hover-color);
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Estilos para el interruptor de tema */
+.theme-toggle-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 2rem;
+  width: 4rem; /* Ancho del interruptor */
+  height: 2rem; /* Alto del interruptor */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0; /* Reseteamos el padding */
+  font-size: 1.2rem; /* Ajustamos el tamaño del ícono */
+  color: transparent; /* Ocultamos el texto original del botón */
+  margin-left: 1rem; /* Espacio entre el último link y el interruptor */
+}
+
+/* Círculo deslizable (el "interruptor") */
+.theme-toggle-btn::before {
+  content: '🌙'; /* Ícono por defecto (modo claro) */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.7rem; /* Diámetro del círculo */
+  width: 1.7rem; /* Diámetro del círculo */
+  left: 0.15rem; /* Posición inicial a la izquierda */
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease, content 0s;
+  color: #333; /* Color del ícono */
+}
+
+body.dark-mode .theme-toggle-btn::before {
+  content: '☀️'; /* Ícono para modo oscuro */
+  transform: translateX(2rem); /* Mueve el círculo a la derecha */
+}
+
+/* Estilo especial para el botón de Login */
+.link--login {
+  display: inline-flex; /* Habilita flexbox para alinear contenido */
+  align-items: center; /* Centra el texto verticalmente */
+  justify-content: center; /* Centra el texto horizontalmente */
+  background: linear-gradient(90deg, #4a90e2 60%, #357abd 100%);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 8px 0 #4a90e244;
+  /* Animación de pulso para llamar la atención */
+  animation: pulse-shadow 2.5s infinite ease-in-out;
+  padding: 0.6rem 2.5rem; /* Reducimos el padding vertical para que no sea tan alto */
+}
+
+.link--login:hover {
+  background: linear-gradient(90deg, #357abd 60%, #4a90e2 100%);
+  color: #fff; /* Mantenemos el color del texto */
+  box-shadow: 0 6px 24px 0 #4a90e288; /* Sombra más pronunciada en hover */
+  transform: translateY(-2px) scale(1.05);
+  animation: none; /* Detenemos la animación de pulso en hover */
+}
+
+/* Keyframes para la animación de pulso del botón de login */
+@keyframes pulse-shadow {
+  0%, 100% {
+    box-shadow: 0 2px 8px 0 #4a90e244;
+  }
+  50% {
+    box-shadow: 0 4px 20px 0 #4a90e277;
+  }
+}
+
+/* Oculta el menú hamburguesa por defecto */
+.hamburger-menu {
+    display: none; /* Oculto en escritorio */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+}
+
+.hamburger-menu:focus {
+    outline: none;
+}
+
+.hamburger-menu__bar {
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--text-color);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* Animación para la 'X' */
+.hamburger-menu.is-active .hamburger-menu__bar:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.hamburger-menu.is-active .hamburger-menu__bar:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger-menu.is-active .hamburger-menu__bar:nth-child(3) {
+    transform: rotate(-45deg);
+}
+/** -------------------------------HERO SECTION-------------------------------------- **/
+
+.hero-section {
+min-height: 40vh;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+background: 
+linear-gradient(90deg, rgba(10, 10, 10, 0.8) 0%, rgba(50, 50, 50, 0.5) 100%),
+url('img/hero_fondo.png');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+box-shadow: 0 8px 32px 0 #0008;
+padding: 2rem 0;
+text-align: center;
+
+}
+
+.wrap-hero-section {
+max-width: 600px;
+color: #fff;
+padding: 2rem 1rem;
+margin: 0 auto;
+border-radius: 1.5rem;
+box-shadow: 0 8px 32px 0 #0006;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 2rem;
+backdrop-filter: blur(2px);
+box-sizing: border-box;
+}
+
+.wrap-hero-section h1 {
+font-size: 3rem;
+color: #fff;
+margin-bottom: 1rem;
+letter-spacing: 2px;
+text-shadow: 1px 2px 12px #0005;
+}
+
+.wrap-hero-section p {
+font-size: 1.25rem;
+color: #f3f3f3;
+margin-bottom: 1.5rem;
+  line-height: 1.6;
+  text-shadow: 0 2px 8px #0004;
+}
+
+.wrap-cta {
+width: 100%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.cta-a {
+  color: #fff;
+  background: linear-gradient(90deg, #4a90e2 60%, #357abd 100%);
+  font-weight: bold;
+  font-size: 2rem;           /* Más grande */
+  padding: 1.8rem 3.5rem;      /* Más alto y ancho */
+  border-radius: 2.9rem; /* Podría ser una variable si se reutiliza */
+  box-shadow: 0 4px 24px 0 #4a90e299, 0 2px 12px 0 #4a90e255;
+  transition: 
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    transform 0.18s;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  margin: 1.5rem 0 0 0;
+  display: inline-block;
+  margin: auto;
+}
+
+.cta-a:hover {
+background: linear-gradient(90deg, #357abd 60%, #4a90e2 100%);
+color: #fff;
+box-shadow: 0 4px 24px 0 #4a90e299; /* Sombra específica para el hover */
+transform: translateY(-3px) scale(1.05);
+}
+
+.wrap-title-section {
+display: flex;
+justify-content: center;
+align-items: center;
+background: var(--card-bg);
+padding: 2rem 1rem 1rem 1rem;
+border-radius: 1rem;
+margin: 2rem auto 1rem auto;
+box-shadow: 0 4px 16px 0 #0003;
+max-width: 700px;
+}
+ 
+.wrap-title-section h2 {
+color: var(--text-color);
+font-size: 2.2rem;
+letter-spacing: 2px;
+text-shadow: 1px 2px 8px #23233a88;
+margin: 0;
+}
+
+.hero-subtitle {
+  color: #e9ecef;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px #0004;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: auto;
+}
+
+.hero-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+  margin: auto;
+}
+
+.hero-rating span {
+  font-size: 1.4rem;
+  color: #ffc107;
+  text-shadow: 0 2px 8px #0004;
+}
+
+.hero-rating-text {
+  font-size: 1.1rem;
+  color: #f3f3f3;
+  font-weight: 400;
+}
+
+/* Estilos para la nueva sección de productos en pantalla */
+.product-display-section {
+    background-color: var(--bg-color); /* Un color de fondo claro para la sección */
+    padding: 3rem 1rem;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.product-display-section .wrap-title-section {
+    margin-bottom: 2rem; /* Espacio debajo del título de la sección */
+    background: none; /* Eliminar fondo del wrap-title-section si ya tiene la sección */
+}
+
+.hero-logos {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.hero-logos img {
+  height: 32px;
+  width: auto;
+  opacity: 0.85;
+  filter: drop-shadow(0 2px 8px #23233a33);
+}
+
+/** -------------------------------FORMULARIO-------------------------------------- **/
+ 
+section.two-column-section.form {
+background: var(--card-bg);
+padding: 3rem 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 0;
+border-top: 3px solid #4a90e2;
+
+}
+.form-container {
+  /* Hacemos el formulario flexible y evitamos el desbordamiento */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px; /* Ancho máximo para que no sea demasiado grande en pantallas anchas */
+  width: 90%;       /* Ocupa el 90% del ancho disponible, adaptándose a pantallas chicas */ 
+  background: var(--form-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 #0007;
+  border: 1px solid #dee2e6;
+  padding: 0;
+}
+
+.form-content {
+  width: 100%;
+  /* Controlamos el espacio interno del formulario para que el contenido no toque los bordes */
+  padding: 2.5rem;
+  box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+.form-content h3 {
+color: var(--text-color);
+font-size: 2rem;
+text-align: center;
+letter-spacing: 1px;
+text-shadow: 0 2px 8px #23233a88;
+margin-bottom: 2rem;
+align-items: center;
+justify-content: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form label {
+color: #495057;
+font-weight: 500;
+margin-bottom: 0.5rem;
+display: block;
+letter-spacing: 0.5px;
+font-size: 0.95rem;
+}
+
+.form input,
+.form textarea {
+width: 100%;
+padding: 0.8rem 1rem;
+border-radius: 0.5rem;
+border: 1.5px solid var(--form-input-border);
+background: var(--form-input-bg);
+color: var(--text-color);
+font-size: 1rem;
+resize: none;
+box-sizing: border-box;
+box-shadow: 0 2px 8px 0 #0003;
+transition: border-color 0.3s, box-shadow 0.3s;
+margin: auto; /* Centra los inputs */
+}
+
+.form input::placeholder {
+  color: #888;
+}
+
+.form input:focus,
+.form textarea:focus {
+outline: none;
+border-color: #4a90e2;
+box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
+}
+
+.form .cta-a {
+  width: 100%;
+  padding: 0.8rem 1.5rem; /* Reducimos el padding para que sea más compacto */
+  font-size: 1.1rem; /* Reducimos el tamaño de la fuente */
+  margin-top: 1rem;
+}
+
+
+/** -------------------------------FOOTER-------------------------------------- **/
+
+.footer-section {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 3rem 2rem 1.5rem 2rem;
+  margin-top: 0;
+  border-top: 3px solid #4a90e2;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  /* Crea una cuadrícula responsive donde cada columna tiene un mínimo de 220px */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+
+.logo-footer {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+
+.footer-column h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-column p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-column ul {
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-column ul a {
+  color: var(--footer-text);
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.footer-column ul a:hover {
+  color: #4a90e2;
+  padding-left: 5px;
+}
+
+.footer-creds{
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #495057;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-links a img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.8;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.social-links a:hover img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+
+/** -------------------------------MODAL STYLES-------------------------------------- **/
+
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Se queda fijo en la pantalla */
+  z-index: 200; /* Se asegura de que esté por encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Permite scroll si el contenido es muy grande */
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+  /* Usamos flex para centrar el contenido del modal vertical y horizontalmente */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenido del Modal (la caja) */
+.modal .modal-content {
+  position: relative; /* Necesario para posicionar el botón de cierre */
+  /* Reutilizamos los estilos del contenedor del formulario principal */
+  max-width: 70vw;
+  width: 90%;
+  max-height: 90vh;
+  height: 90%;
+  background: var(--modal-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 #0007;
+  border: 1px solid #dee2e6;
+  /* Animación para aparecer */
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Estilos específicos para el modal de login para hacerlo más pequeño */
+#login-modal .modal-content {
+    max-width: 450px; /* Hacemos el modal de login más angosto */
+    height: auto; /* La altura se ajustará al contenido */
+    max-height: 80vh; /* Evita que sea demasiado alto en pantallas pequeñas */
+}
+
+#register-modal .modal-content {
+    max-width: 450px; /* Hacemos el modal de login más angosto */
+    height: auto; /* La altura se ajustará al contenido */
+    max-height: 80vh; /* Evita que sea demasiado alto en pantallas pequeñas */
+}
+/* Keyframes para la animación de aparición del modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* Botón de cierre (la 'X') */
+.close-button {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  transition: color 0.3s;
+  z-index: 1; /* Asegura que el botón esté por encima de otros elementos del modal */
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #4a90e2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilo para el enlace de 'Regístrate' dentro del modal */
+.form-group p {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #6c757d;
+}
+
+.form-group p a {
+    color: #4a90e2;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Estilos específicos para el contenido del formulario DENTRO de un modal */
+.modal .form-content {
+    /* Reutiliza los estilos de .form-content pero con ajustes para el modal */
+    padding: 2rem 2.5rem; 
+}
+
+.modal .form-content h3 {
+    font-size: 1.8rem; /* Hacemos el título un poco más compacto */
+    margin-bottom: 1.5rem; /* Reducimos el espacio inferior para un look más ajustado */
+}
+
+/* Añade un margen inferior al último elemento del formulario dentro de un modal */
+/* Esto evita que el botón "Registrarse" quede pegado al fondo del modal */
+.modal .form > *:last-child {
+    margin-bottom: 1rem;
+}
+
+/* Estilos para el contenedor del video en el modal */
+.modal .video-container {
+    padding: 1rem;
+    box-sizing: border-box;
+    line-height: 0; /* Evita espacios extra debajo del video */
+}
+
+.modal video {
+    width: 100%;
+    height: auto;
+    border-radius: 0.8rem; /* Bordes redondeados para el video */
+}
+
+/* Estilos para modales con contenido de texto */
+.modal .text-content {
+    text-align: left;
+    color: var(--text-color);
+    /* Ajustes para contenido largo */
+    height: 100%; /* Ocupa toda la altura del contenedor padre (.modal-content) */
+    overflow-y: auto; /* Habilita el scroll vertical cuando el contenido excede la altura */
+    padding: 2rem 2.5rem; /* Padding uniforme */
+    box-sizing: border-box; /* Asegura que el padding no incremente el tamaño total */
+}
+
+.modal .text-content h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #4a90e2;
+}
+.modal .text-content ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* Estilos para el modal de catálogo */
+.modal-lg {
+    max-width: 900px; /* Un modal más ancho para el catálogo */
+}
+
+.product-catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Cuadrícula responsive */
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+/* Centrar la cuadrícula de productos */
+
+.product-card {
+    background: var(--card-bg);
+    border: 1px solid #e9ecef;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #f0f0f0; /* Color de fondo mientras carga la imagen */
+}
+
+.product-name {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a90e2;
+    margin-bottom: 1rem;
+}
+
+.product-buy-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #4a90e2;
+    color: #fff;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.product-buy-btn:hover {
+    background-color: #357abd;
+}
+/** -------------------------------RESPONSIVE DESIGNE-------------------------------------- **/
+
+
+@media (max-width: 768px) {
+
+  /** -----------------GENERALES-------------------- **/
+
+  h2 {
+    font-size: 2rem; /* Tamaño de fuente corregido para ser legible */
+  }
+
+  /** -----------------HEADER-------------------- **/
+
+  .header-landing {
+    justify-content: space-between; /* Espacio entre el logo y la hamburguesa */
+    padding: 0.5rem 1.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background-color: var(--header-bg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%); /* Oculta el menú fuera de la pantalla */
+    transition: transform 0.3s ease-in-out;
+    padding-top: 4rem;
+    gap: 2rem;
+  }
+
+  .main-nav.is-active {
+    transform: translateX(0); /* Muestra el menú */
+  }
+
+  .nav__ul {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav__link {
+    font-size: 1.2rem;
+  }
+
+  .hamburger-menu {
+    display: flex; /* Muestra el botón de hamburguesa en móviles */
+  }
+
+  .link--login {
+  display: inline-flex; /* Para centrar el contenido */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  margin-top: 1rem; /* Añadir margen superior para separación */
+  }
+
+/** -----------------HERO SECTION-------------------- **/
+.hero-section {
+    padding: 0; /* Aumentar el padding para pantallas pequeñas */
+    text-align: center; /* Centrar el texto en pantallas pequeñas */
+    justify-content: center; /* Centrar el contenido en pantallas pequeñas */
+}
+
+.wrap-hero-section {
+    max-width: 90%; /* Aumentar el ancho máximo para pantallas pequeñas */
+    padding: 1.5rem; /* Reducir el padding para pantallas pequeñas */
+    text-align: center;
+}
+
+.hero-rating {
+    justify-content: center; /* Centrar la calificación en pantallas pequeñas */
+    margin-bottom: 1rem; /* Reducir el margen inferior */
+}
+
+.wrap-cta {
+    justify-content: center; /* Centrar el botón CTA en pantallas pequeñas */
+}
+
+
+/** -----------------FORM SECTION-------------------- **/
+
+.form-content {
+    /* Reducimos el padding en móviles para dar más espacio al contenido */
+    padding: 2rem 1.5rem;
+}
+
+/** -----------------FOOTER-------------------- **/
+
+  .footer-container {
+    /* La propiedad flex-direction no aplica a un contenedor Grid, se elimina. */
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
